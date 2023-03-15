@@ -250,10 +250,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CategoryController.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\Class1Controller.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -316,20 +314,16 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\Category\Edit.cshtml" />
-    <Content Include="Views\Category\Delete.cshtml" />
-    <Content Include="Views\Category\Create.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Product\Edit.cshtml" />
-    <Content Include="Views\Product\Delete.cshtml" />
-    <Content Include="Views\Product\Create.cshtml" />
-    <Content Include="Views\Category\Contact.cshtml" />
-    <Content Include="Views\Category\About.cshtml" />
-    <Content Include="Views\Product\Contact.cshtml" />
-    <Content Include="Views\Product\About.cshtml" />
-    <Content Include="Views\Product\Details.cshtml" />
-    <Content Include="Views\Category\Details.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Class1\Create.cshtml" />
+    <Content Include="Views\Class1\Delete.cshtml" />
+    <Content Include="Views\Class1\Details.cshtml" />
+    <Content Include="Views\Class1\Edit.cshtml" />
+    <Content Include="Views\Class1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

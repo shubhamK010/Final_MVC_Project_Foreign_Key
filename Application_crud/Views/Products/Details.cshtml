@@ -1,21 +1,21 @@
-﻿@model Application_crud.Models.Class1
+﻿@model Application_crud.Models.Product
 
 @{
     ViewBag.Title = "Details";
 }
 
 <h2>Details</h2>
-@{ ViewBag.Title = "Details";}
+
 <div>
-    <h4>Employee</h4>
+    <h4>Product</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ProductId)
+            @Html.DisplayNameFor(model => model.CategoryName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ProductId)
+            @Html.DisplayFor(model => model.CategoryName)
         </dd>
 
         <dt>
@@ -27,12 +27,13 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CategoryId)
+            @Html.DisplayNameFor(model => model.ProductId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CategoryId)
+            @Html.DisplayFor(model => model.ProductId)
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.CategoryName)
         </dt>
@@ -45,6 +46,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-
     @Html.ActionLink("Back to List", "Index")
 </p>

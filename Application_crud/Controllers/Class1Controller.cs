@@ -7,122 +7,110 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Application_crud.Models;
-using PagedList.Mvc;
-using System.Net;
-using PagedList;
 
 namespace Application_crud.Controllers
 {
-    public class ProductController : Controller
+    public class Class1Controller : Controller
     {
         private ServicesContext db = new ServicesContext();
 
-       
-        public ActionResult Index(int? page)
+        // GET: Class1
+        public ActionResult Index()
         {
-            var pageNumber = page ?? 1;
-            var pageSize = 10;
-            var products = db.Category.OrderBy(x => x.CategoryId).ToPagedList(pageNumber, pageSize);
-            return View(products);
-
-
+            return View(db.Category.ToList());
         }
 
-        // GET: Products/Details/5
+        // GET: Class1/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.product.Find(id);
-            if (product == null)
+            Class1 class1 = db.Category.Find(id);
+            if (class1 == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(class1);
         }
 
-        // GET: Products/Create
+        // GET: Class1/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "CategoryName");
             return View();
         }
 
-        // POST: Products/Create
+        // POST: Class1/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ProductName,ProductId,CategoryId,CategoryName")] Product product)
+        public ActionResult Create([Bind(Include = "Id,CategoryId,CategoryName")] Class1 class1)
         {
             if (ModelState.IsValid)
             {
-                db.product.Add(product);
+                db.Category.Add(class1);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "CategoryName", product.CategoryId);
-            return View(product);
+            return View(class1);
         }
 
-        // GET: Products/Edit/5
+        // GET: Class1/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.product.Find(id);
-            if (product == null)
+            Class1 class1 = db.Category.Find(id);
+            if (class1 == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "CategoryName", product.CategoryId);
-            return View(product);
+            return View(class1);
         }
 
-        // POST: Products/Edit/5
+        // POST: Class1/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ProductName,ProductId,CategoryId,CategoryName")] Product product)
+        public ActionResult Edit([Bind(Include = "Id,CategoryId,CategoryName")] Class1 class1)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
+                db.Entry(class1).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "CategoryName", product.CategoryId);
-            return View(product);
+            return View(class1);
         }
 
-        // GET: Products/Delete/5
+        // GET: Class1/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.product.Find(id);
-            if (product == null)
+            Class1 class1 = db.Category.Find(id);
+            if (class1 == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(class1);
         }
 
-        // POST: Products/Delete/5
+        // POST: Class1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = db.product.Find(id);
-            db.product.Remove(product);
+            Class1 class1 = db.Category.Find(id);
+            db.Category.Remove(class1);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
